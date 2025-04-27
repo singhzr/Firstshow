@@ -11,7 +11,10 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         // Allow cross-origin requests from http://127.0.0.1:5500 (your frontend)
         registry.addMapping("/**")
-                .allowedOrigins("http://127.0.0.1:5500")
+                .allowedOrigins(
+                        "http://127.0.0.1:5500",
+                        "https://singhzr.github.io"
+                )
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
                 .allowedHeaders("*")
                 .allowCredentials(true);
