@@ -85,6 +85,7 @@ public class ShowController {
 
         try {
             List<ShowSeat> showSeatData  = showService.showSeatData(showId);
+
             return new ResponseEntity(showSeatData, HttpStatus.OK);
         }
         catch (Exception e) {

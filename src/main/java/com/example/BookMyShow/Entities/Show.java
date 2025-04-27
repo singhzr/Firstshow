@@ -24,6 +24,7 @@ public class Show {
 
     private LocalDate showDate;
 
+    @Column(name = "show_time", columnDefinition = "TIME")
     private LocalTime showTime;
 
     @JsonIgnore

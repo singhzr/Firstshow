@@ -34,6 +34,7 @@ public class ShowSeat {//Represents particular Seat booked for a particular show
     @Enumerated(EnumType.STRING)
     private SeatStatus status;
 
+    @Column(name = "lock_time", columnDefinition = "DATETIME")
     private LocalDateTime lockTime;
 
     private String lockedBy;
