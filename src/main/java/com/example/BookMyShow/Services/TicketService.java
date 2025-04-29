@@ -11,14 +11,20 @@ import com.example.BookMyShow.Repositories.TicketRepository;
 import com.example.BookMyShow.Repositories.UserRepository;
 import com.example.BookMyShow.RequestDTOs.AddTicketRequest;
 import com.example.BookMyShow.Response.ShowTicketResponse;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.mail.util.ByteArrayDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -137,22 +143,39 @@ public class TicketService {
                 .foodAttached(ticket.getFoodAttached())
                 .build();
 
-//        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-//
-//        simpleMailMessage.setFrom("springacciojob@gmail.com");
-//        simpleMailMessage.setTo(emailId);
-//        simpleMailMessage.setSubject("Movie Ticket Confirmation");
-//        simpleMailMessage.setText(  "Movie name - "+showTicketResponse.getMovieName()+"\n"+
-//                                    "Show time - "+showTicketResponse.getShowTime()+"\n"+
-//                                    "Show date - "+showTicketResponse.getShowDate()+"\n"+
-//                                    "Seats booked - "+bookedSeats+"\n"+
-//                                    "Food attached - "+showTicketResponse.getFoodAttached()+"\n"+
-//                                    "Theater - "+showTicketResponse.getTheaterInfo()+"\n"+
-//                                    "Amount paid - "+showTicketResponse.getTotalAmt()+"\n");
-//        mailSender.send(simpleMailMessage);
-
         return showTicketResponse;
     }
+
+    public void sendImageEmail(String toEmail, String subject, String base64Image)
+            throws MessagingException, IOException {
+
+        if (base64Image == null || base64Image.isEmpty()) {
+            throw new IllegalArgumentException("Image data is empty");
+        }
+
+        String base64Data;
+        if (base64Image.contains(",")) {
+            base64Data = base64Image.split(",")[1];
+        } else {
+            base64Data = base64Image;
+        }
+
+        byte[] imageBytes = Base64.getDecoder().decode(base64Data);
+
+        MimeMessage message = mailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message, true);
+        helper.setTo(toEmail);
+        helper.setSubject(subject);
+        helper.setText("Your movie ticket is attached as an image.", false);
+
+        ByteArrayDataSource dataSource = new ByteArrayDataSource(imageBytes, "image/png");
+        helper.addAttachment("ticket.png", dataSource);
+
+        mailSender.send(message);
+    }
+
+
+
     public String cancelTicket(Integer ticketId)throws Exception{
 
         Ticket ticketEntity = ticketRepository.findTicket(ticketId);

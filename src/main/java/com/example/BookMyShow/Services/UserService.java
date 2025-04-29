@@ -7,6 +7,8 @@ import com.example.BookMyShow.RequestDTOs.AddUserRequest;
 import com.example.BookMyShow.Response.UserResponse;
 import com.example.BookMyShow.SecurityServices.JWTService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -14,9 +16,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import java.util.Arrays;
-
 import java.util.List;
-import java.util.Objects;
 
 import static com.example.BookMyShow.BookMyShowApplication.userNameMap;
 
@@ -29,6 +29,9 @@ public class UserService {
     private AuthenticationManager authManager;
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private JavaMailSender mailSender;
 
     public String addUser(AddUserRequest addUserRequest){
         List<User> usersList = userRepository.findAll();
@@ -50,6 +53,9 @@ public class UserService {
                 .build();
 
         user = userRepository.save(user);
+
+        sendEmail(user);
+
         return "User with userId "+user.getUserId()+" has been saved to the DB";
 
     }
@@ -154,6 +160,27 @@ public class UserService {
         }
 
         return "Wrong password";
+    }
+
+    public void sendEmail(User user){
+
+        SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
+
+        String registrationMessage = "Hi " + user.getName() + ",\n\n" +
+                "🎉 Welcome aboard!\n\n" +
+                "Your registration was successful, and your Firstshow account is now active. " +
+                "You can now browse movies, book tickets, and enjoy a seamless movie experience.\n\n" +
+                "Start exploring now and never miss your favorite shows again!\n\n" +
+                "If you have any questions or need help, feel free to reply to this email.\n\n" +
+                "Cheers,\n" +
+                "The Firstshow Team";
+
+
+        simpleMailMessage.setFrom("firstshowmail@gmail.com");
+        simpleMailMessage.setTo(user.getEmailId());
+        simpleMailMessage.setSubject("Registered successfully.");
+        simpleMailMessage.setText(registrationMessage);
+        mailSender.send(simpleMailMessage);
     }
 
 }
