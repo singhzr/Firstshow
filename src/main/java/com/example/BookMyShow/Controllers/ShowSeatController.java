@@ -1,19 +1,12 @@
 package com.example.BookMyShow.Controllers;
-
-import com.example.BookMyShow.Entities.Show;
-import com.example.BookMyShow.Entities.ShowSeat;
 import com.example.BookMyShow.RequestDTOs.LockShowSeatRequest;
-import com.example.BookMyShow.RequestDTOs.UnLockShowSeatRequest;
 import com.example.BookMyShow.Services.ShowSeatService;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("showSeat")

@@ -41,7 +41,6 @@ public class TicketController {
     @GetMapping("/viewTicket")
     public ResponseEntity viewTicket(@RequestParam("ticketId")Integer ticketId){
 
-        System.out.println(ticketId);
         try{
 
             ShowTicketResponse showTicketResponse = ticketService.viewTicket(ticketId);

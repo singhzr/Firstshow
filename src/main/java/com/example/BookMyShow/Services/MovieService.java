@@ -22,6 +22,7 @@ import java.util.*;
 
 @Service
 public class MovieService {
+
     @Autowired
     private MovieRepository movieRepository;
 

@@ -53,7 +53,7 @@ public class UserController {
     @GetMapping("/validateUser/{userName}")
     public ResponseEntity validateUser(@PathVariable("userName") String userName){
 
-        String validation = userService. validateUser(userName);
+        String validation = userService.validateUser(userName);
 
         return new ResponseEntity<>(validation, HttpStatus.OK);
     }
