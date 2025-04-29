@@ -19,10 +19,10 @@ public class ShowTicketResponse {
     private String theaterInfo;
     private LocalDate showDate;
     private LocalTime showTime;
-    private int totalAmt;
+    private Integer totalAmt;
     private String seatNos;
     private String emailId;
-    private int foodAttached;
+    private Integer foodAttached;
     private String movieImageURL;
     private String movieLanguage;
     private Integer ticketId;

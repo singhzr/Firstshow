@@ -29,7 +29,7 @@ public class TicketController {
 
         String sessionId = httpServletRequest.getHeader("Session-ID");
         try{
-            String result = ticketService.bookTicket(addTicketRequest, sessionId);
+            Integer result = ticketService.bookTicket(addTicketRequest, sessionId);
             return new ResponseEntity<>(result, HttpStatus.OK);
         }
         catch (Exception e){
@@ -41,7 +41,9 @@ public class TicketController {
     @GetMapping("/viewTicket")
     public ResponseEntity viewTicket(@RequestParam("ticketId")Integer ticketId){
 
+        System.out.println(ticketId);
         try{
+
             ShowTicketResponse showTicketResponse = ticketService.viewTicket(ticketId);
 
             return new ResponseEntity<>(showTicketResponse, HttpStatus.OK);
@@ -64,7 +66,6 @@ public class TicketController {
 
             return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
-
     }
     @PostMapping("/sendTicket")
     public ResponseEntity<String> sendTicketImage(@RequestBody TicketImageRequest request) throws MessagingException, IOException {

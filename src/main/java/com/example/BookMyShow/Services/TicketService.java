@@ -46,7 +46,7 @@ public class TicketService {
     private ShowSeatRepository showSeatRepository;
 
     @Transactional
-    public String bookTicket(AddTicketRequest bookTicketRequest, String sessionId) throws Exception {
+    public Integer bookTicket(AddTicketRequest bookTicketRequest, String sessionId) throws Exception {
 
         try{
             Optional<Show> showOptional = showRepository.findById(bookTicketRequest.getShowId());
@@ -64,14 +64,14 @@ public class TicketService {
             for (ShowSeat showSeat : showSeatList) {
 
                 if (showSeat.getStatus() != SeatStatus.LOCKED) {
-                    return "Seat is not locked";
+                    return -1; //"Seat is not locked";
                 }
 
                 if (!sessionId.equals(showSeat.getLockedBy())) {
-                    return "Seat locked by another user";
+                    return -2; //"Seat locked by another user";
                 }
                 if (showSeat.getLockTime().isBefore(LocalDateTime.now().minusMinutes(5))) {
-                    return "Lock expired";
+                    return -3; //"Lock expired";
                 }
 
                 if (showSeat.getStatus() == SeatStatus.BOOKED) {
@@ -104,10 +104,9 @@ public class TicketService {
 
             ticket = ticketRepository.save(ticket);
 
-            return ticket.getTicketId().toString();
-        }
-        catch (Exception e){
-            return e.getMessage();
+            return ticket.getTicketId();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
     public ShowTicketResponse viewTicket(Integer ticketId)throws Exception{

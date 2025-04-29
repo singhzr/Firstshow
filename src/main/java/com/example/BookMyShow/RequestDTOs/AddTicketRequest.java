@@ -10,11 +10,11 @@ import java.util.List;
 @Setter
 public class AddTicketRequest {
 
-    private int showId;
+    private Integer showId;
 
     public List<String> seatList;
 
-    private int foodAttached;
+    private Integer foodAttached;
 
     private String emailId;
 }
