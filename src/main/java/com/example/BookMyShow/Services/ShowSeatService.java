@@ -56,7 +56,7 @@ public class ShowSeatService {
 
     @Transactional
     public void unlockExpiredSeats() {
-        LocalDateTime cutoff = LocalDateTime.now().minusMinutes(1);
+        LocalDateTime cutoff = LocalDateTime.now().minusMinutes(5);
         List<ShowSeat> expiredLockedSeats = showSeatRepository.findByStatusAndLockTimeBefore(SeatStatus.LOCKED, cutoff);
 
         for (ShowSeat showSeat : expiredLockedSeats) {
