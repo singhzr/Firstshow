@@ -11,13 +11,10 @@ import com.example.BookMyShow.Repositories.TheaterRepository;
 import com.example.BookMyShow.Repositories.TicketRepository;
 import com.example.BookMyShow.RequestDTOs.AddMovieRequest;
 import com.example.BookMyShow.RequestDTOs.GetShowsOfMovieOnGivenDate;
-import com.example.BookMyShow.Response.AllShowsOnGivenDate;
 import com.example.BookMyShow.Transformers.MovieTransformer;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalTime;
 import java.util.*;
 
 @Service

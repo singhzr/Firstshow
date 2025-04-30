@@ -1,6 +1,5 @@
 package com.example.BookMyShow.Response;
 
-import com.example.BookMyShow.Enums.SeatType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

@@ -1,7 +1,6 @@
 package com.example.BookMyShow.Repositories;
 
 import com.example.BookMyShow.Entities.User;
-import com.example.BookMyShow.Response.UserResponse;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

@@ -2,6 +2,8 @@ package com.example.BookMyShow.Configuration;
 
 import com.example.BookMyShow.SecurityServices.JWTService;
 import com.example.BookMyShow.SecurityServices.MyUserDetailsServiceTelusko;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.jsonwebtoken.ExpiredJwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,6 +18,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 @Component
 public class JwtFilter extends OncePerRequestFilter {
@@ -27,35 +30,72 @@ public class JwtFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+        try {
+            String authHeader = request.getHeader("Authorization");
+            //Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbIlJPTEVfU1RVREVOVCIsIlJPTEVfUkFORE9NIl0sInN1YiI6InJpeWEiLCJpYXQiOjE3MzAwMjM3MzMsImV4cCI6MTczMDAyMzg0MX0.gT1xf39H_i3dS37KB19LudhuGsrxKj7b7xQ4_bgOG8I
 
-        String authHeader = request.getHeader("Authorization");
-        //Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjpbIlJPTEVfU1RVREVOVCIsIlJPTEVfUkFORE9NIl0sInN1YiI6InJpeWEiLCJpYXQiOjE3MzAwMjM3MzMsImV4cCI6MTczMDAyMzg0MX0.gT1xf39H_i3dS37KB19LudhuGsrxKj7b7xQ4_bgOG8I
+            String token = null;
+            String username = null;
 
-        String token = null;
-        String username = null;
-
-        if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            token = authHeader.substring(7);
-            username = jwtService.extractUserName(token);
-        }
-
-        if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-
-            UserDetails userDetails = context.getBean(MyUserDetailsServiceTelusko.class).loadUserByUsername(username);
-
-            if (jwtService.validateToken(token, userDetails)) {
-                UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-                authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                SecurityContextHolder.getContext().setAuthentication(authToken);
+            if (authHeader != null && authHeader.startsWith("Bearer ")) {
+                token = authHeader.substring(7);
+                username = jwtService.extractUserName(token);
             }
+
+            if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+
+                UserDetails userDetails = context.getBean(MyUserDetailsServiceTelusko.class).loadUserByUsername(username);
+
+                if (jwtService.validateToken(token, userDetails)) {
+                    UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                    authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                    SecurityContextHolder.getContext().setAuthentication(authToken);
+                }
+            }
+            filterChain.doFilter(request, response);
         }
-        filterChain.doFilter(request, response);
+        catch (ExpiredJwtException e) {
+            // Prepare JSON response
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            response.setContentType("application/json");
+
+            HashMap<String, Object> errorResponse = new HashMap<>();
+            errorResponse.put("error", "JWT expired");
+            errorResponse.put("message", e.getMessage());
+            errorResponse.put("expiredAt", e.getClaims().getExpiration());
+
+            ObjectMapper mapper = new ObjectMapper();
+            mapper.writeValue(response.getWriter(), errorResponse);
+        }
     }
 }
 
 
+/*
+    ObjectMapper mapper = new ObjectMapper();
+    mapper.writeValue(response.getWriter(), errorResponse);
+
+    ObjectMapper mapper = new ObjectMapper();
+    What it does: ObjectMapper is a class from the Jackson library used for converting between Java objects and JSON.
+    This line creates a new instance of ObjectMapper and assigns it to the variable mapper.
+
+    Why it matters: This instance is your tool for converting Java objects into JSON strings (serialization)
+    or converting JSON strings back into Java objects (deserialization).
 
 
+    mapper.writeValue(response.getWriter(), errorResponse);
+    What it does: This line tells the ObjectMapper to:
+      1. Convert the Java object errorResponse into JSON format, and
+
+      2. Write that JSON directly to the output stream of the HTTP response (i.e., response.getWriter()).
+
+    Breakdown:
+    response.getWriter(): Gets the PrintWriter associated with the HTTP response, which allows you
+    to write text (like HTML or JSON) back to the client’s browser.
+
+    writeValue(...): This is a method of ObjectMapper that serializes the given object into JSON and
+    writes it to the specified destination. The destination here is the response's writer.
+ */
 
 
 /*

@@ -12,7 +12,7 @@ public class SeatUnlockScheduler {
     private ShowSeatService showSeatService;
 
     // Runs every minute to unlock expired seats
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(fixedRate = 60000)
     public void unlockSeats() {
         showSeatService.unlockExpiredSeats();
     }

@@ -4,17 +4,12 @@ import com.example.BookMyShow.Entities.Movie;
 import com.example.BookMyShow.Entities.Show;
 import com.example.BookMyShow.RequestDTOs.AddMovieRequest;
 import com.example.BookMyShow.RequestDTOs.GetShowsOfMovieOnGivenDate;
-import com.example.BookMyShow.Response.AllShowsOnGivenDate;
 import com.example.BookMyShow.Services.MovieService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 

@@ -1,8 +1,6 @@
 package com.example.BookMyShow.Controllers;
 
-import com.example.BookMyShow.Entities.Show;
 import com.example.BookMyShow.Entities.ShowSeat;
-import com.example.BookMyShow.Entities.Theater;
 import com.example.BookMyShow.Entities.TheaterSeat;
 import com.example.BookMyShow.RequestDTOs.AddShowRequest;
 import com.example.BookMyShow.RequestDTOs.AddShowSeatsRequest;
@@ -13,8 +11,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 @RestController

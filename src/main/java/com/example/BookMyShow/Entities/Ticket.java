@@ -1,6 +1,5 @@
 package com.example.BookMyShow.Entities;
 
-import com.example.BookMyShow.Enums.SeatType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;

@@ -1,5 +1,4 @@
 package com.example.BookMyShow.Services;
-import com.example.BookMyShow.Entities.Show;
 import com.example.BookMyShow.Entities.ShowSeat;
 import com.example.BookMyShow.Enums.SeatStatus;
 import com.example.BookMyShow.Repositories.ShowRepository;
@@ -10,9 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ShowSeatService {

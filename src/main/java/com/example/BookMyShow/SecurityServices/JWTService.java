@@ -2,26 +2,25 @@ package com.example.BookMyShow.SecurityServices;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
-
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import java.security.NoSuchAlgorithmException;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class JWTService {
+
+    @Autowired
     private SecretKey secretKey;
 
     public JWTService() {
         try {
             KeyGenerator keyGen = KeyGenerator.getInstance("HmacSHA256");
             keyGen.init(256); // Set key size to 256 bits
-            secretKey = keyGen.generateKey(); // Generate the key
+            //secretKey = keyGen.generateKey(); // Generate the key
         }
         catch (NoSuchAlgorithmException e) {
             throw new RuntimeException("Error generating secret key", e);
@@ -36,7 +35,7 @@ public class JWTService {
                 .add(claims)
                 .subject(username)
                 .issuedAt(new Date(System.currentTimeMillis()))
-                .expiration(new Date(System.currentTimeMillis() + 10 * 60 * 6000))
+                .expiration(new Date(System.currentTimeMillis() + 3600*1000)) //1hour
                 .and()
                 .signWith(getKey())
                 .compact();
@@ -53,11 +52,13 @@ public class JWTService {
     }
 
     private Claims extractAllClaims(String token) {
+
         return Jwts.parser()
                 .verifyWith(getKey())
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();
+
     }
 
     public boolean validateToken(String token, UserDetails userDetails) {
