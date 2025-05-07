@@ -150,7 +150,6 @@ public class TicketService {
         String base64Data;
         if (base64Image.contains(",")) {
             base64Data = base64Image.split(",")[1];
-
         }
         else {
             base64Data = base64Image;
