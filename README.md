@@ -80,7 +80,7 @@ Allows users to view and select available seats for the chosen showtime. Booked 
 ## ✅ Booking Confirmation Page
 Displays confirmation details after a successfully selecting seats. 
 
-![Image](https://github.com/user-attachments/assets/be91df0d-c1f1-4c12-b9f7-c176776e0285)
+![Image](https://github.com/user-attachments/assets/55c89ca7-4449-49f2-beb1-daf536fd5116)
  
 
 ## 🔒 Login Required
@@ -93,7 +93,7 @@ Before proceeding to seat selection or booking, users must be logged in. Unauthe
 ## ✅ Booking Confirmation Page
 Unauthenticated users are redirected to the login page before booking. After login, they are automatically redirected to the booking confirmation page with their selected seats and showtime preserved.    
 
-![Image](https://github.com/user-attachments/assets/be91df0d-c1f1-4c12-b9f7-c176776e0285)
+![Image](https://github.com/user-attachments/assets/55c89ca7-4449-49f2-beb1-daf536fd5116)
 
 
 ## 🎫 Ticket View Page
