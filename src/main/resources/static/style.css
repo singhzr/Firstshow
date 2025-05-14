@@ -223,15 +223,18 @@
 }
 .sidebar-exit{
     margin-top: 20px;
-    margin-left: 280px;
+    margin-left: 100px;
     background-color: #f5f5f5;
 }
 .sidebar-name{
+
     color: rgb(72, 71, 71);;
     font-size: 15px;
     font-weight: 400;
-    margin-left: 5pxpx;
+    margin-left: 5px;
     margin-top: 10px;
+    height: 40px;
+    width: 200px;
     background-color: #f5f5f5;
 }
 .orders{
