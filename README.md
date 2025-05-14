@@ -1,8 +1,8 @@
 # 🎬 Firstshow - Online Movie Ticket Booking Platform
 
-🎥 Video Demo: [Firstshow - YouTube](https://your-video-link.com)     
+🎥 Video Demo: [Firstshow - YouTube](https://youtu.be/QQMWNTAb8io)     
 
-🌐 Live Demo: [Firstshow - Live](https://your-video-link.com)
+🌐 Live Demo: [Firstshow - Live](https://firstshow.vercel.app)   
 
 **Firstshow** is a full-stack movie ticket booking application built with **Spring Boot**, **JavaScript**, **HTML**, and **CSS**. It allows users to browse movies, book tickets, manage their profiles, and enables cinema owners/admins to manage theaters and showtimes.
 
