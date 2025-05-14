@@ -101,3 +101,7 @@ Displays ticket details including movie name, theater, showtime, and seat number
 
 ![Image](https://github.com/user-attachments/assets/71910456-277e-4302-bdeb-7bf676e026f3)
 
+## 👤 Profile Page
+View all your booked tickets in one convenient place. The Profile page allows you to track bookings with ease. Need to make a change? You can also cancel tickets directly from this page when eligible.
+
+![Image](https://github.com/user-attachments/assets/a744c13f-d92a-4a01-9ea3-bf32fc265526)
