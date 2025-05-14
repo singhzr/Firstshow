@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Movies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="singup.css" rel="stylesheet"/>
+</head>
+<body>
+    <body>
+        <div class="form">
+
+            <div id="signup">Sign Up</div>
+            
+            <form id="form-data">
+
+            <input type="text" id="username" name="username" placeholder="Username">
+            <input type="text" id="username-validation">
+
+            <input type="text" id="name" name="name" placeholder="Name">
+            <input type="text" id="name-validation">
+
+            <input type="email" id="email" name="email" placeholder="Email">
+            <input type="text" id="email-validation">
+            
+            <input type="password" id="password" name="Password" placeholder="Password">
+            <input type="text" id="password-strength">
+
+            <button type="submit" id="submit-button" disabled> Submit </button>
+
+            <div id="signup-successful"></div>
+            <div id="already-signed-up">Already have an account? <div id="login-button">Login</div> </div>
+            </form>
+        </div>
+    </body>
+    <script src="signup.js" defer ></script>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theater</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="style.css" rel="stylesheet"/>
+    <link href="theater.css" rel="stylesheet"/>
+ 
+</head>
+<body>
+  
+    <div id="movie-details"></div>
+
+    <div class="blurring-div">
+      <div id="theater-seats">
+        <div class="spinner" style="background-color: white; border: 3px solid #f3f3f3; border-top: 3px solid rgb(248, 68, 100)"></div>
+      </div>
+      <div class="stickyDiv hidden"><div class="price">Pay Rs. </div></div>
+    </div>
+
+    <div class="seat-selection-error">
+      <div class="seat-selection-error-info"></div>
+      <div class="refresh">Refresh</div>
+    </div>
+    
+    <script src="theater.js" defer ></script>
+</body>
+</html>

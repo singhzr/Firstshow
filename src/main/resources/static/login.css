@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Roboto;
+    font-weight: 500;
+    background-color: rgb(245, 245, 245);
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 320px;
+    background-color: white;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 18vh;
+    margin-left: 35vw;
+}
+
+#signin{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 225px;
+    height: 49px;
+    background-color: rgb(248, 68, 100);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 50px;
+    font-size: 20px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    
+}
+
+#form-data{
+    background-color: rgb(255, 255, 255);
+}
+
+#username-email:focus, #email:focus, #password:focus, #username:focus{
+    outline: none;
+    border: 1px solid rgb(248, 68, 100);
+    box-shadow: 0 0 4px rgb(248, 68, 100);
+}
+#username-email{
+    width: 220px;
+    height: 30px;
+    background-color: white;
+    border: 1.7px solid rgb(228, 225, 225);
+    border-radius: 5px;
+    padding-left: 8px;
+    box-sizing: border-box;
+}
+
+#username-validation{
+    padding-left: 6px;
+    width: 220px;
+    height: 15px;
+    background-color: white;
+    border: white;
+    color: rgb(47, 206, 95); 
+    font-weight: 500;
+    font-size: 10px;
+    margin-bottom: 15px;
+    pointer-events: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+#password{
+    width: 220px;
+    height: 30px;
+    background-color: white;
+    border: 1.7px solid rgb(228, 225, 225);
+    border-radius: 5px;
+    padding-left: 8px;
+    box-sizing: border-box;
+    box-sizing: border-box;
+    
+}
+#password-validation{
+    width: 220px;
+    height: 15px;
+    background-color: white;
+    border: white;
+    padding-left: 6px;
+    margin-bottom: 25px;
+    font-size: 10px;
+    color: rgb(47, 206, 95); 
+    pointer-events: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+
+#submit-button{
+    all: unset;
+    cursor: pointer;
+    width: 225px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgb(246, 143, 162);
+    color: white;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+
+#already-signed-up{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    width: 220px;
+    height: 15px;
+    background-color: white;
+    border: white;
+    padding-left: 6px;
+    font-size: 14px;
+    color: rgb(153, 152, 152); 
+    margin-left: 50px;
+    font-size: 12px;
+    border:1px solid black;
+    box-sizing: border-box;
+}
+#signin-successful{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    height: 15px;
+    background-color: white;
+    border: white;
+    padding-left: 6px;
+    margin-bottom: 15px;
+    font-size: 10px;
+    color: rgb(47, 206, 95); 
+    margin-left: 50px;
+    font-size: 12px;
+    pointer-events: none;
+    outline: none;
+    box-sizing: border-box;
+}
+#dont-have-account{
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    width: 220px;
+    height: 15px;
+    background-color: white;
+    border: white;
+    padding-left: 6px;
+    font-size: 14px;
+    color: rgb(153, 152, 152); 
+    margin-left: 50px;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+#signup-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    border-radius: 5px;
+    background-color: white;
+    color: rgb(248, 68, 100);
+    cursor: pointer;
+    margin-left: 4px;
+    box-sizing: border-box;
+}
+.dot-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 225px;
+    height: 30px;
+    gap: 25px;
+    border-radius: 5px;
+    background-color: rgb(248, 68, 100);
+    box-sizing: border-box;
+}
+
+.dot-loader div {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 60%;
+    animation: pulse 0.5s infinite ease-in-out alternate;
+}
+
+.dot-loader div:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.dot-loader div:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+    from {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    to {
+      transform: scale(1.5);
+      opacity: 1;
+    }
+}
