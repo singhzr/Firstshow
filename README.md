@@ -49,55 +49,55 @@
 ## 🗺️ Select Location Page
 Users begin by selecting their city to view nearby theaters and available movies.  
 
-![Image](https://github.com/user-attachments/assets/c164160d-ecd3-4e21-b787-bf6bd7ed8491)
+![Image](https://github.com/user-attachments/assets/60f821dc-0a7c-49a6-954a-00da4c9d8177)
 
 
 ## 🎬 Home Page – Browse Movies
 Displays available movies based on the selected location.   
 
-![Image](https://github.com/user-attachments/assets/f6d913ea-f68a-497b-8ad8-afde17a2d2c4)
+![Image](https://github.com/user-attachments/assets/771e7689-8f03-49f1-842a-cb3adc9da3ae)
 
 
 ## 🎞️ Movie Info Page
 Displays detailed information about the selected movie—name, genre, rating, duration.   
 
-<img src="https://github.com/user-attachments/assets/fee99b03-94e9-4445-b395-083580ba2ea6" width="100%" />
+![Image](https://github.com/user-attachments/assets/18e675c4-eed5-4eb8-9e33-3526790a1012)
 
 
 ## 🎞️ Movie Info Page – Showtimes
 Displays detailed movie information along with all available showtimes across different theaters and dates. Users can choose their preferred show to proceed with booking.    
 
-![Image](https://github.com/user-attachments/assets/39801410-9fec-42af-977f-793e407ef97c)
+![Image](https://github.com/user-attachments/assets/1d8d479c-cf19-4c20-87f9-999d93ef20cd)
 
 
 ## 💺 Seat Selection Page
 Allows users to view and select available seats for the chosen showtime. Booked and premium seats are clearly indicated. Once seats are selected, users can proceed to payment.  
 
-<img src="https://github.com/user-attachments/assets/7ec9b38a-374e-4153-9789-8537b7008e19" width="100%" />
-<img src="https://github.com/user-attachments/assets/e9f6b358-82fd-4594-abbe-cd49525d7562" width="100%" />
+![Image](https://github.com/user-attachments/assets/00aa04c0-bf04-4fab-879d-0ffca8810100)
+![Image](https://github.com/user-attachments/assets/7e559af0-749f-47cf-bd69-2c08e97a4bfa)
 
 
 ## ✅ Booking Confirmation Page
 Displays confirmation details after a successfully selecting seats. 
 
-<img src="https://github.com/user-attachments/assets/2d1a254d-f0a4-4d06-9aa7-0a2fee813e73" width="100%" />
+![Image](https://github.com/user-attachments/assets/be91df0d-c1f1-4c12-b9f7-c176776e0285)
  
 
 ## 🔒 Login Required
 Before proceeding to seat selection or booking, users must be logged in. Unauthenticated users are redirected to the login page.   
 
-<img src="https://github.com/user-attachments/assets/8495bc89-565c-4a24-9590-0572be246714" width="100%" />
-<img src="https://github.com/user-attachments/assets/0b77ba1b-c65f-44de-beb4-5c07469c1e63" width="100%" />
+![Image](https://github.com/user-attachments/assets/2a5d574f-179d-45b5-b196-3fec58ebb260)
+![Image](https://github.com/user-attachments/assets/4c978926-0def-4693-ae33-f9e5faffb990)
 
 
 ## ✅ Booking Confirmation Page
 Unauthenticated users are redirected to the login page before booking. After login, they are automatically redirected to the booking confirmation page with their selected seats and showtime preserved.    
 
-<img src="https://github.com/user-attachments/assets/2d1a254d-f0a4-4d06-9aa7-0a2fee813e73" width="100%" />
+![Image](https://github.com/user-attachments/assets/be91df0d-c1f1-4c12-b9f7-c176776e0285)
 
 
 ## 🎫 Ticket View Page
 Displays ticket details including movie name, theater, showtime, and seat numbers. A PDF of the ticket is also sent to the user's registered email for easy access.   
 
-<img src="https://github.com/user-attachments/assets/9c542b63-e3c6-4133-b553-0e8389e3ebcb" width="100%" />
+![Image](https://github.com/user-attachments/assets/71910456-277e-4302-bdeb-7bf676e026f3)
 
