@@ -81,7 +81,7 @@ Allows users to view and select available seats for the chosen showtime. Booked 
 Displays confirmation details after a successfully selecting seats. 
 
 <img src="https://github.com/user-attachments/assets/2d1a254d-f0a4-4d06-9aa7-0a2fee813e73" width="100%" />
-
+ 
 
 ## 🔒 Login Required
 Before proceeding to seat selection or booking, users must be logged in. Unauthenticated users are redirected to the login page.   
